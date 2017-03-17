@@ -8,7 +8,7 @@ import javax.annotation.Resource;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
 
-import com.spring.board.common.dao.BoardDAO;
+import com.spring.board.dao.BoardDAO;
 import com.spring.board.service.BoardService;
 
 @Service("boardService")
