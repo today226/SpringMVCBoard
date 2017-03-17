@@ -5,11 +5,13 @@
     xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
                         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
  
+ 	<!-- SQL 쿼리 설정 폴더 지정 -->
     <bean id="sqlSession" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource" />
         <property name="mapperLocations" value="classpath:/mapper/**/*_SQL.xml" />
     </bean>
-     
+    
+    <!-- sqlSessionTemplate은 마이바티스 스프링 연동모듈의 핵심이다. SQLSessionTemplate은 SqlSession을 구현하고, 코드에서 SqlSessoin을 대체하는 역할  -->
     <bean id="sqlSessionTemplate" class="org.mybatis.spring.SqlSessionTemplate">
         <constructor-arg index="0" ref="sqlSession"/>
     </bean> 
