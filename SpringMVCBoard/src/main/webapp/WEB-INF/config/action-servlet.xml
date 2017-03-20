@@ -12,7 +12,13 @@
 	<!-- <mvc:mapping path/>를 통해서 인터셉터가 동작할 URL을 지정할 수 있다. 
 		   지금 작성하는 로거는 모든 요청에서 동작을 하기때문에 전체 패스를 의미하는 "/**" 로 설정했다 그 후, bean을 수동으로 등록한다
 	-->
-	
+	<!-- CustomMapArgumentResolver는 root context 영역에 등록 -->
+	<mvc:annotation-driven>
+        <mvc:argument-resolvers>
+            <bean class="com.spring.board.common.resolver.CustomMapArgumentResolver"></bean>      
+        </mvc:argument-resolvers>
+    </mvc:annotation-driven>
+    
 	<mvc:interceptors>
         <mvc:interceptor>
             <mvc:mapping path="/**"/>
