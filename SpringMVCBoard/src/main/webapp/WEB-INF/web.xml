@@ -46,6 +46,7 @@
   </servlet-mapping>
   
   <!-- 웹 애플리케이션에 존재하는 모든 서블릿 or JSP등 여러 파일 간 자원을 공유해서 쓸때 -->
+  <!-- 스프링 관련 여러가지 설정파일이 있기 때문에, 위와같이 설정파일을 읽어올 수 있도록 하였다 -->
   <context-param>
      <param-name>contextConfigLocation</param-name>
      <param-value>classpath*:config/spring/context-*.xml</param-value>
