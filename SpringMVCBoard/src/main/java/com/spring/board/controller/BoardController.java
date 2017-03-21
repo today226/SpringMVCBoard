@@ -24,11 +24,17 @@ public class BoardController {
 	private BoardService boardService;
 	
 	@RequestMapping(value="/board/boardList.com")
-	public ModelAndView openBoardList(Map<String, Object> commandMap) throws Exception{
+	public ModelAndView BoardList(Map<String, Object> commandMap) throws Exception{
 		ModelAndView mv = new ModelAndView("/board/boardList");
 		
 		List<Map<String, Object>> list = boardService.selectBoardList(commandMap);
 		mv.addObject("list", list);
+		return mv;
+	}
+	
+	@RequestMapping(value="/board/boardWrite.com")
+	public ModelAndView boardWrite(CommandMap commandMap) throws Exception{
+		ModelAndView mv = new ModelAndView("/board/boardWrite");
 		return mv;
 	}
 	
@@ -46,4 +52,6 @@ public class BoardController {
 		}
 		return mv;
 	}
+	
+	
 }
