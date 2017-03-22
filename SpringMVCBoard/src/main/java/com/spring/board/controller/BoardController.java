@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.spring.board.common.logger.ParameterLogger;
 import com.spring.board.common.map.CommandMap;
 import com.spring.board.service.BoardService;
 
@@ -52,4 +53,13 @@ public class BoardController {
 		}
 		return mv;
 	}	
+	
+	@RequestMapping(value="/board/insertBoard.com")
+	public ModelAndView insertBoard(CommandMap commandMap) throws Exception{
+		ParameterLogger parameterLogger = new ParameterLogger();
+		parameterLogger.outputParameters(commandMap);
+		ModelAndView mv = new ModelAndView("redirect:/board/boardList.com");
+		boardService.insertBoard(commandMap.getMap());
+		return mv;
+	}
 }
