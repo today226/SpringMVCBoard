@@ -24,5 +24,11 @@ public class BoardServiceImpl implements BoardService {
 		// TODO Auto-generated method stub
 		return boardDAO.selectBoardList(map);
 	}
+
+	@Override
+	public void insertBoard(Map<String, Object> map) throws Exception {
+		boardDAO.insertBoard(map) ;
+		
+	}
 	
 }
