@@ -69,7 +69,7 @@
 		
 		function fn_boardDetail(obj){
 			var comSubmit = new ComSubmit();
-			comSubmit.setUrl("<c:url value='/board/boardDetail.com' />");
+			comSubmit.setUrl("<c:url value='/board/updateBoardDetail.com' />");
 			//obj.parent().find("#IDX").val()은 jQuery를 이용하여 선택된 <a> 태그의 부모 노드 내에서 IDX라는 값을 가진 태그를 찾아서 그 태그의 값을 가져오도록 한 것
 			comSubmit.addParam("IDX", obj.parent().find("#IDX").val());
 			comSubmit.submit();
