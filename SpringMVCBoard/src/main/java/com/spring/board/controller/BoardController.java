@@ -63,16 +63,16 @@ public class BoardController {
 		return mv;
 	}
 	
-	@RequestMapping(value="/board/boardDetail.com")
-	public ModelAndView openUpdateBoard(CommandMap commandMap) throws Exception{
+	@RequestMapping(value="/board/selectBoardDetail.com")
+	public ModelAndView selectBoardDetail(CommandMap commandMap) throws Exception{
 		ModelAndView mv = new ModelAndView("/board/boardDetail");
 		Map<String, Object> map = boardService.selectBoardDetail(commandMap.getMap());
 		mv.addObject("map", map);
 		return mv;
 	}	
 	
-	@RequestMapping(value="/board/openBoardUpdate.com")
-	public ModelAndView openBoardUpdate(CommandMap commandMap) throws Exception{
+	@RequestMapping(value="/board/updateBoardUpdate.com")
+	public ModelAndView boardUpdateDetail(CommandMap commandMap) throws Exception{
 		ModelAndView mv = new ModelAndView("/board/boardUpdate");
 		
 		ParameterLogger parameterLogger = new ParameterLogger();
@@ -81,5 +81,16 @@ public class BoardController {
 		Map<String, Object> map = boardService.updateBoardDetail(commandMap.getMap());
 		mv.addObject("map", map);
 		return mv;
+	}
+	
+	@RequestMapping(value="/board/boardUpdate.com")
+	public ModelAndView boardUpdate(CommandMap commandMap) throws Exception{
+		ModelAndView mv = new ModelAndView("redirect:/board/selectBoardDetail.com");
+		boardService.updateBoard(commandMap.getMap());
+		mv.addObject("IDX", commandMap.get("IDX"));
+		ParameterLogger parameterLogger = new ParameterLogger();
+		parameterLogger.outputParameters(commandMap);
+		return mv;
+		
 	}
 }
