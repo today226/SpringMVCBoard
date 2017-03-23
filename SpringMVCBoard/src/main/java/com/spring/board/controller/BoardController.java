@@ -62,4 +62,24 @@ public class BoardController {
 		boardService.insertBoard(commandMap.getMap());
 		return mv;
 	}
+	
+	@RequestMapping(value="/board/boardDetail.com")
+	public ModelAndView openUpdateBoard(CommandMap commandMap) throws Exception{
+		ModelAndView mv = new ModelAndView("/board/boardDetail");
+		Map<String, Object> map = boardService.selectBoardDetail(commandMap.getMap());
+		mv.addObject("map", map);
+		return mv;
+	}	
+	
+	@RequestMapping(value="/board/openBoardUpdate.com")
+	public ModelAndView openBoardUpdate(CommandMap commandMap) throws Exception{
+		ModelAndView mv = new ModelAndView("/board/boardUpdate");
+		
+		ParameterLogger parameterLogger = new ParameterLogger();
+		parameterLogger.outputParameters(commandMap);
+		
+		Map<String, Object> map = boardService.updateBoardDetail(commandMap.getMap());
+		mv.addObject("map", map);
+		return mv;
+	}
 }
