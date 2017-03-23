@@ -60,7 +60,7 @@
 		function fn_boardUpdate(){
 			var idx = "${map.IDX}";
 			var comSubmit = new ComSubmit();
-			comSubmit.setUrl("<c:url value='/board/openBoardUpdate.com' />");
+			comSubmit.setUrl("<c:url value='/board/updateBoardUpdate.com' />");
 			comSubmit.addParam("IDX", idx);
 			comSubmit.submit();
 		}

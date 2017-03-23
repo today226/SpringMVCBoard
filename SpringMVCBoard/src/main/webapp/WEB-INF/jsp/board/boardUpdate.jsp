@@ -20,7 +20,7 @@
 					<th scope="row">글 번호</th>
 					<td>
 						${map.IDX}
-						<input type="hidden" id="IDX" name="IDX" value="${map.IDS }"/> 
+						<input type="hidden" id="IDX" name="IDX" value="${map.IDX}"/> 
 					</td>
 					<th scope="row">조회수</th>
 					<td>${map.HIT_CNT}</td>
@@ -76,7 +76,7 @@
 		}
 		
 		function fn_updateBoard(){
-			var comSubmit = new ComSubmit();
+			var comSubmit = new ComSubmit("frm");
 			comSubmit.setUrl("<c:url value='/board/boardUpdate.com' />");
 			comSubmit.submit();
 		}
