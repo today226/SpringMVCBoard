@@ -71,7 +71,7 @@ public class BoardController {
 		return mv;
 	}	
 	
-	@RequestMapping(value="/board/updateBoardUpdate.com")
+	@RequestMapping(value="/board/boardUpdateDetail.com")
 	public ModelAndView boardUpdateDetail(CommandMap commandMap) throws Exception{
 		ModelAndView mv = new ModelAndView("/board/boardUpdate");
 		
@@ -90,7 +90,13 @@ public class BoardController {
 		mv.addObject("IDX", commandMap.get("IDX"));
 		ParameterLogger parameterLogger = new ParameterLogger();
 		parameterLogger.outputParameters(commandMap);
+		return mv;	
+	}
+	
+	@RequestMapping(value="/board/boardDelete.com")
+	public ModelAndView boardDelete(CommandMap commandMap) throws Exception{
+		ModelAndView mv = new ModelAndView("redirect:/board/boardList.com");
+		boardService.deleteBoard(commandMap.getMap());
 		return mv;
-		
 	}
 }

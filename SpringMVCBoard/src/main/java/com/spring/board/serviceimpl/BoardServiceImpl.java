@@ -50,4 +50,10 @@ public class BoardServiceImpl implements BoardService {
 	public void updateBoard(Map<String, Object> map) throws Exception {
 		boardDAO.updateBoard(map);
 	}
+
+	@Override
+	public void deleteBoard(Map<String, Object> map) throws Exception {
+		boardDAO.deleteBoard(map);
+		
+	}
 }

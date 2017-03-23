@@ -13,5 +13,7 @@ public interface BoardService {
 
 	Map<String, Object> updateBoardDetail(Map<String, Object> map) throws Exception;
 
-	void updateBoard(Map<String, Object> map)throws Exception;
+	void updateBoard(Map<String, Object> map) throws Exception;
+
+	void deleteBoard(Map<String, Object> map) throws Exception;
 }
