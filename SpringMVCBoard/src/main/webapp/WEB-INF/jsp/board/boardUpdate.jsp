@@ -48,7 +48,6 @@
 	</form>
 	<a href="#this" class="btn" id="list">목록</a>
 	<a href="#this" class="btn" id="update">저장</a>
-	<a href="#this" class="btn" id="delete">삭제</a>
 	
 	<%@ include file="/WEB-INF/include/include-body.jspf" %>
 	<script type="text/javascript">
@@ -76,6 +75,7 @@
 		}
 		
 		function fn_updateBoard(){
+			//comSubmit.addParam("IDX", $("#IDX").val());
 			var comSubmit = new ComSubmit("frm");
 			comSubmit.setUrl("<c:url value='/board/boardUpdate.com' />");
 			comSubmit.submit();

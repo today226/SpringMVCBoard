@@ -37,6 +37,7 @@
 	</table>
 	<a href="#this" class="btn" id="list">목록</a>
 	<a href="#this" class="btn" id="update">수정</a>
+	<a href="#this" class="btn" id="delete">삭제</a>
 	
 	<%@ include file="/WEB-INF/include/include-body.jspf" %>
 	<script type="text/javascript">
@@ -49,6 +50,10 @@
 				e.preventDefault();
 				fn_boardUpdate();
 			});
+			$("#delete").on("click", function(e){
+				e.preventDefault();
+				fn_boardDelete();
+			});			
 		});
 		
 		function fn_boardList(){
@@ -60,11 +65,18 @@
 		function fn_boardUpdate(){
 			var idx = "${map.IDX}";
 			var comSubmit = new ComSubmit();
-			comSubmit.setUrl("<c:url value='/board/updateBoardUpdate.com' />");
+			comSubmit.setUrl("<c:url value='/board/boardUpdateDetail.com' />");
 			comSubmit.addParam("IDX", idx);
 			comSubmit.submit();
 		}
 		
+		function fn_boardDelete(){
+			var idx = "${map.IDX}";
+			var comSubmit = new ComSubmit();
+			comSubmit.setUrl("<c:url value='/board/boardDelete.com' />");
+			comSubmit.addParam("IDX", idx);
+			comSubmit.submit();
+		}
 	</script>
 </body>
 </html>
