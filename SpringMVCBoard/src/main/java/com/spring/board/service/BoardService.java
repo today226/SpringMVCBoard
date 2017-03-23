@@ -9,4 +9,7 @@ public interface BoardService {
 
 	void insertBoard(Map<String, Object> map) throws Exception;
 
+	Map<String, Object> selectBoardDetail(Map<String, Object> map) throws Exception;
+
+	Map<String, Object> updateBoardDetail(Map<String, Object> map) throws Exception;
 }
