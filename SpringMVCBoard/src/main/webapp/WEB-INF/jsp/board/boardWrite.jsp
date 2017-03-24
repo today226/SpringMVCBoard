@@ -5,7 +5,9 @@
 	<%@ include file="/WEB-INF/include/include-header.jspf" %>
 </head>
 <body>
-	<form id="frm">
+<!-- 해당 폼을 Multipart 형식임을 알려주는데,사진,동영상 등 글자가 아닌 파일은 모두 Multipart 형식의 데이터다. 
+파일 관련된 개발을 하다보면 상당히 많은 에러가 나는데, 그 중에서 가장 많은 경우가 form에 enctype="multipart/form-data"가 선언되지 않은 경우-->
+	<form id="frm" name="frm" enctype="multipart/form-data">
 		<table class="board_view">
 			<colgroup>
 				<col width="15%"/>
@@ -24,6 +26,8 @@
 				</tr>
 			</tbody>
 		</table>
+		<input type="file" name="file"/>
+		<br/><br/>
 		<div>
 			<a href="#this" class="btn" style="padding-top:2px;" id="list">목록으로</a>
 			<a href="#this" class="btn" style="padding-top:2px;" id="write">작성하기</a>
